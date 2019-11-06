@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Tweet = (props) => {
+    return (
+        <div>
+            <h1>{props.tweet}</h1>
+        </div>
+    )
 }
+class App extends React.Component {
+    state = {
+        tweets: [           
+        ],
+        showTweets: true,
+        text: ""
+    }
 
+    switchTweetsHandler = () => {
+        this.setState(
+          {
+            tweets:[
+              ...this.state.tweets,
+              {tweet : this.state.text},
+            ]
+          }
+        )
+    }
+
+    switchInput = (e) => {
+        this.setState({
+            text: e.target.value
+        })
+    }
+
+    render(){
+
+        const tweetsDetail = this.state.tweets.map((tweets, i)=>{
+            return <Tweet key = {i} tweet = {tweets.tweet} />
+        })
+
+        return(
+            <div>
+                <button onClick = {()=> this.switchTweetsHandler ()}>New Tweet</button>
+                <input type="text" onChange = {(e)=>{this.switchInput(e)}} />
+                {this.state.showTweets ? tweetsDetail : null}
+            </div>
+        )
+    }
+}
 export default App;
