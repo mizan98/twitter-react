@@ -1,62 +1,54 @@
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Nav from './components/Nav'
-import Home from './components/Home'
-import Profile from './components/Profile'
 import './App.css';
+import {render} from 'react-dom'
+import SplitPane from 'react-split-pane'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import Home from './components/Home'
+import Explore from './components/Explore'
+import Notifications from './components/Notifications'
+import Messages from './components/Messages'
+import Bookmarks from './components/Bookmarks';
+import Lists from './components/Lists'
+import Profile from './components/Profile'
 
-const Tweet = (props) => {
-    return (
-        <div>
-            <h1>{props.tweet}</h1>
-        </div>
-    )
-}
-class App extends React.Component {
-    state = {
-        tweets: [           
-        ],
-        showTweets: true,
-        text: ""
-    }
 
-    switchTweetsHandler = () => {
-        this.setState(
-          {
-            tweets:[
-              ...this.state.tweets,
-              {tweet : this.state.text},
-            ]
-          }
-        )
-    }
+const styles = {
+    background: '#000',
+    width: '2px',
+    cursor: 'col-resize',
+    margin: '0 5px',
+    height: '100%',
+  };
 
-    switchInput = (e) => {
-        this.setState({
-            text: e.target.value
-        })
-    }
+const App = () => (
+    <Router>
+        <SplitPane
+        split="vertical"
+        minSize={100}
+        defaultSize={100}
+        resizerStyle={styles}
+        >
+            <menu>
+                <div><Link to='/'>Home</Link></div>
+                <div><Link to='/Explore'>Explore</Link></div>
+                <div><Link to='/Notifications'>Notifications</Link></div>
+                <div><Link to='/Messages'>Messages</Link></div>
+                <div><Link to='/Bookmarks'>Bookmarks</Link></div>
+                <div><Link to='/Lists'>Lists</Link></div>
+                <div><Link to='/Profile'>Profile</Link></div>
 
-    render(){
-
-        const tweetsDetail = this.state.tweets.map((tweets, i)=>{
-            return <Tweet key = {i} tweet = {tweets.tweet} />
-        })
-
-        return(
-        <BrowserRouter>
+            </menu>
             <div>
-                <Nav />
-                <Switch>
-                    <Route exact path="/" render={ () => <Home/>}/>
-                    <Route path="/" render={ () => <Profile/>}/>
-                </Switch>
-                <button onClick = {()=> this.switchTweetsHandler ()}>New Tweet</button>
-                <input type="text" onChange = {(e)=>{this.switchInput(e)}} />
-                {this.state.showTweets ? tweetsDetail : null}
+                <Route exact path='/' component={Home} />
+                <Route path='/Explore' component={Explore} />
+                <Route path='/Notifications' component={Notifications} />
+                <Route path='/Messages' component={Messages} />
+                <Route path='/Bookmarks' component={Bookmarks} />
+                <Route path='/Lists' component={Lists} />
+                <Route path='/Profile' component={Profile} />
             </div>
-        </BrowserRouter>
-        )
-    }
-}
+        </SplitPane>
+    </Router>
+)
+
 export default App;

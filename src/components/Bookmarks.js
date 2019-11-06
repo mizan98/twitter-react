@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Profile() {
+export default function Bookmarks() {
     return (
         <div>
-            <h1>Profile</h1>
+            <h1>Bookmarks</h1>
         </div>
     )
 }
