@@ -20,3 +20,29 @@
 .App-link {
   color: #09d3ac;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px;
+  color: white;
+  background-color: #1A2835;
+}
+
+nav ul li{
+  list-style: none; 
+  display: inline-block;
+}
+
+nav ul li a{
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 30px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+nav ul li a:hover{
+  background-color: lightskyblue;
+}

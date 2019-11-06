@@ -1,4 +1,9 @@
 import React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Nav from './components/Nav'
+import Home from './components/Home'
+import Profile from './components/Profile'
+import './App.css';
 
 const Tweet = (props) => {
     return (
@@ -39,11 +44,18 @@ class App extends React.Component {
         })
 
         return(
+        <BrowserRouter>
             <div>
+                <Nav />
+                <Switch>
+                    <Route exact path="/" render={ () => <Home/>}/>
+                    <Route path="/" render={ () => <Profile/>}/>
+                </Switch>
                 <button onClick = {()=> this.switchTweetsHandler ()}>New Tweet</button>
                 <input type="text" onChange = {(e)=>{this.switchInput(e)}} />
                 {this.state.showTweets ? tweetsDetail : null}
             </div>
+        </BrowserRouter>
         )
     }
 }
