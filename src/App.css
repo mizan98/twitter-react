@@ -47,6 +47,7 @@ aside {
 
 ul{
   padding: 0;
+  height: 100vh;
   
 }
 
@@ -62,4 +63,8 @@ img{
   height: 45px;
   background-size: cover;
   box-sizing: border-box;
+}
+
+.content{
+  border: solid 2px rgba(83, 83, 83, 0.377);
 }
