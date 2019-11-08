@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
-import Explore from './components/Explore'
+import Trending from './components/Trending'
 import Notifications from './components/Notifications'
 import Messages from './components/Messages'
 import Bookmarks from './components/Bookmarks';
@@ -16,13 +16,15 @@ class App extends React.Component {
 
     render(){
         return(
-            <BrowserRouter>
+         <BrowserRouter>
+            <div className="content">
+                <Nav/>
+                <Home/>
+                <Trending/>
+            </div>
+           
                 <div className="app">
-                    <Nav />
-                    
                         <Switch>
-                            <Route exact path='/' render={ () => <div><Home/></div> } />
-                            <Route path='/Explore' render={ () => <div><Explore/></div> } />
                             <Route path='/Notifications' render={ () => <Notifications/> } />
                             <Route path='/Messages' render={ () => <Messages/> } />
                             <Route path='/Bookmarks' render={ () => <Bookmarks/> } />

@@ -1,4 +1,5 @@
 import React from 'react'
+import img1 from '../tweet.png'
 
 export default function Home() {
     return (
@@ -10,8 +11,7 @@ export default function Home() {
 
             <body>
                 <div className="content">
-                <h2>Tweet function will come here</h2>
-                <h2>this is a test</h2>
+                <img className="tweet" src={img1} alt = "tweet"></img>
                 </div>
             </body> 
 
