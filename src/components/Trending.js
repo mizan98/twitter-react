@@ -6,7 +6,7 @@ export default function Explore() {
                 <h1>Trending</h1>
             
     <div className="trendcontent">
-      <h3>Logan Paul VS KSI</h3>
+      <h3>AJvsRuiz</h3>
       <h3>Brexit</h3>
       <h3>Kyle Walker</h3>
       <h3>Hong Kong</h3>

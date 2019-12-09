@@ -1,20 +1,24 @@
 import React from 'react'
-import img1 from '../tweet.png'
+import Tweet from './Tweet'
+import Monkey from '../image/monkey.jpg'
+import Man from '../image/man.jpg'
 
-export default function Home() {
+
+
+function Home() {
     return (
-        <div>
-                <div className="Title">
-                    <h1>Home</h1>
-                    
-                </div>
+        <div className='homebox'>
+            <div>
+                <h1>Home</h1>
+            <div>   
+                <Tweet caption='This is a test' image={Monkey}/>
+                <Tweet caption='This is the second tweet' image={Man}/>
 
-            <body>
-                <div className="content">
-                <img className="tweet" src={img1} alt = "tweet"></img>
-                </div>
-            </body> 
-
+            </div>
+                
+            </div>
         </div>
     )
 }
+
+export default Home;

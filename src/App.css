@@ -2,7 +2,6 @@
   overflow-x: hidden;
 }
 
-
 nav {
   /* position: relative; */
   flex-direction: column;
@@ -91,4 +90,20 @@ h1{
 
 .content{
   display: flex;
+}
+
+.tweetbox{
+  border: 2px grey;
+  box-sizing: border-box;
+  align-content: center;
+}
+
+.homebox{
+  padding-left: 100px;
+  box-sizing: border-box;
+}
+
+.tweet-images{
+  width: 70px;
+  height: 70px;
 }
